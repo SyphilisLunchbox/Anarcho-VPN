@@ -23,7 +23,7 @@
         "foregroundImage": "./assets/images/app-icon-slt.png",
         "backgroundColor": "#000000"
       },
-      "package": "com.placeholder.app"
+      "package": "com.anarcho.vpn"
     },
     "web": {
       "favicon": "./assets/images/final_quest_240x240.png",
@@ -41,7 +41,7 @@
     },
     "extra": {
       "router": {},
-      "backendUrl": "https://gsmjbzus55us4vg3c4g9tmvmasguurmt.app.specular.dev",
+      "backendUrl": "https://m5qtw3p4avq2mfmxmny4htshjdvjcgcu.app.specular.dev",
       "revenueCatApiKeyIos": "appl_SiAYSOqpcnReXVpHRejvbwvqyTN",
       "revenueCatApiKeyAndroid": "goog_uOpTdpAJpLIrTGoLdlHCllrUaaE",
       "revenueCatEntitlementId": "pro",
