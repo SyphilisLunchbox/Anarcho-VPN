@@ -120,7 +120,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     await fetchUser();
   };
 
-  const signInWithSocial = async (provider: ) => {
+  const signInWithSocial = async (provider: string) => {
     if (Platform.OS === "web") {
       const token = await openOAuthPopup(provider);
       await setBearerToken(token);
@@ -142,6 +142,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   const signInWithApple = async () => {
     if (Platform.OS === "ios") {
       // Native Apple Sign In on iOS — shows the system Face ID / password modal
+      // eslint-disable-next-line @typescript-eslint/no-require-imports
       const AppleAuthentication = require("expo-apple-authentication");
       const credential = await AppleAuthentication.signInAsync({
         requestedScopes: [

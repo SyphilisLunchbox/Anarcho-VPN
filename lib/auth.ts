@@ -9,6 +9,7 @@ export const BEARER_TOKEN_KEY = "i-need-basically-a-p_bearer_token";
 
 const getPlugins = () => {
   if (Platform.OS === "web") return [];
+  // eslint-disable-next-line @typescript-eslint/no-require-imports
   const { expoClient } = require("@better-auth/expo/client");
   return [
     expoClient({
