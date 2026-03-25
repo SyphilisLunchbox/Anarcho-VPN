@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "i-need-basically-a-p",
-    "slug": "i-need-basically-a-p",
+    "name": "Anarcho VPN",
+    "slug": "anarcho-vpn",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/images/app-icon-slt.png",
@@ -35,7 +35,7 @@
       "expo-web-browser",
       "expo-secure-store"
     ],
-    "scheme": "ineedbasicallyap",
+    "scheme": "anarchovpn",
     "experiments": {
       "typedRoutes": true
     },
