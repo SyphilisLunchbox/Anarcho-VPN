@@ -17,7 +17,7 @@ import {
 import { StatusBar } from "expo-status-bar";
 import { WidgetProvider } from "@/contexts/WidgetContext";
 import { SubscriptionProvider, useSubscription } from "@/contexts/SubscriptionContext";
-import { useAuth } from "@/contexts/AuthContext";
+import { AuthProvider, useAuth } from "@/contexts/AuthContext";
 // Note: Error logging is auto-initialized via index.ts import
 
 // Prevent the splash screen from auto-hiding before asset loading is complete.
@@ -135,39 +135,41 @@ export default function RootLayout() {
     },
   };
   return (
-    <SubscriptionProvider>
-          <SubscriptionRedirect />
-  <>
-      <StatusBar style="auto" animated />
-        <ThemeProvider
-          value={colorScheme === "dark" ? CustomDarkTheme : CustomDefaultTheme}
-        >
-          <SafeAreaProvider>
-            <WidgetProvider>
-              <GestureHandlerRootView>
-              {onboardingComplete === false && pathname !== "/auth" && pathname !== "/paywall" && pathname !== "/auth-popup" && pathname !== "/auth-callback" && <Redirect href="/onboarding" />}
+    <AuthProvider>
+      <SubscriptionProvider>
+        <SubscriptionRedirect />
+        <>
+          <StatusBar style="auto" animated />
+          <ThemeProvider
+            value={colorScheme === "dark" ? CustomDarkTheme : CustomDefaultTheme}
+          >
+            <SafeAreaProvider>
+              <WidgetProvider>
+                <GestureHandlerRootView>
+                  {onboardingComplete === false && pathname !== "/auth" && pathname !== "/paywall" && pathname !== "/auth-popup" && pathname !== "/auth-callback" && <Redirect href="/onboarding" />}
 
-              <Stack>
-                {/* Main app with tabs */}
-                <Stack.Screen name="onboarding" options={{ headerShown: false }} />
-                <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
-                <Stack.Screen
-                  name="tor"
-                  options={{
-                    title: "Tor Network",
-                    headerBackButtonDisplayMode: "minimal",
-                    headerStyle: { backgroundColor: "#0D0D14" },
-                    headerTintColor: "#fff",
-                    headerTitleStyle: { color: "#fff", fontWeight: "700" },
-                  }}
-                />
-              </Stack>
-              <SystemBars style={"auto"} />
-              </GestureHandlerRootView>
-            </WidgetProvider>
-          </SafeAreaProvider>
-        </ThemeProvider>
-    </>
-    </SubscriptionProvider>
+                  <Stack>
+                    {/* Main app with tabs */}
+                    <Stack.Screen name="onboarding" options={{ headerShown: false }} />
+                    <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
+                    <Stack.Screen
+                      name="tor"
+                      options={{
+                        title: "Tor Network",
+                        headerBackButtonDisplayMode: "minimal",
+                        headerStyle: { backgroundColor: "#0D0D14" },
+                        headerTintColor: "#fff",
+                        headerTitleStyle: { color: "#fff", fontWeight: "700" },
+                      }}
+                    />
+                  </Stack>
+                  <SystemBars style={"auto"} />
+                </GestureHandlerRootView>
+              </WidgetProvider>
+            </SafeAreaProvider>
+          </ThemeProvider>
+        </>
+      </SubscriptionProvider>
+    </AuthProvider>
   );
 }
